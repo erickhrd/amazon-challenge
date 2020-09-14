@@ -1,8 +1,9 @@
 import React from 'react';
 import "./Product.css";
 import { useStateValue } from "../../StateProvider/StateProvider";
+import uniqid from 'uniqid';
 
-function Product({title, price, rating, image, id}) {
+function Product({title, price, rating, image, id, key}) {
     const [{ basket }, dispatch] = useStateValue();
 
 
@@ -10,6 +11,7 @@ function Product({title, price, rating, image, id}) {
         dispatch({
             type: "ADD_TO_BASKET",
             item: {
+                key: uniqid(),
                 id: id,
                 title: title,
                 image: image,

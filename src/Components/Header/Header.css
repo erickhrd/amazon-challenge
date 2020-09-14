@@ -46,6 +46,10 @@
     text-decoration: none;
 }
 
+.header > div > a {
+    text-decoration: none;
+}
+
 .header__optionBasket{
     display: flex;
     align-items: center;

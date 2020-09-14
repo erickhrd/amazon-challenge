@@ -3,6 +3,7 @@ const express = require("express");
 const cors = require("cors");
 const stripe = require("stripe")('sk_test_8zYZSvCPCK56iwsDlKqulEjq')
 
+
 //API
 
 //App config
@@ -16,7 +17,7 @@ app.use(express.json());
 app.get('/', (resquest, response) => response.status(200).send('Hello World'))
 
 app.post('/payments/create', async (request, response) => {
-    const total = request.query.total;
+    const total = Number((request.query.total)).toFixed(0);
 
     console.log('Payment Request Received for the amount of >>>', total )
 
