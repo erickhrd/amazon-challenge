@@ -14,7 +14,7 @@ function Checkout() {
     const AnimatedCheckOut = forwardRef(({item, index}, ref) => (
         <div ref={ref}>
           <CheckoutProduct
-                key={item.key}
+                listKey={item.key}
                 title={item.title}
                 id={item.id}
                 rating={item.rating}

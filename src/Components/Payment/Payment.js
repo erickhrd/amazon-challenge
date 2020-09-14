@@ -77,7 +77,7 @@ function Payment() {
     const AnimatedCheckOut = React.forwardRef(({item, index}, ref) => (
         <div ref={ref}>
           <CheckoutProduct
-                key={`anim index ${item.id}`}
+                listKey={item.key}
                 title={item.title}
                 id={item.id}
                 rating={item.rating}
@@ -110,7 +110,7 @@ function Payment() {
                       <FlipMove>
                             {basket?.map((item, index) => (
                             <AnimatedCheckOut
-                                key={`an ${item.id}`}
+                                key={item.key}
                                 item={item}
                                 index={index}
                             />
