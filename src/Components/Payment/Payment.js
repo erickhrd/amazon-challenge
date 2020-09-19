@@ -51,11 +51,14 @@ function Payment() {
         }).then(({ paymentIntent }) => {
             // paymentIntent = payment confirmation
 
-            db.collection('users').doc(user?.uid).collection('orders').doc(paymentIntent.id).set({
+          if(user) { db.collection('users').doc(user?.uid).collection('orders').doc(paymentIntent.id).set({
                 basket: basket,
                 amount: paymentIntent.amount,
                 created: paymentIntent.created
             })
+          } else {
+            
+          }
 
             setSucceeded(true)
             setError(null)
@@ -137,7 +140,7 @@ function Payment() {
                                 thousandSeparator={true}
                                 prefix={"$"}
                             />
-                            <button disabled={processing || disabled || succeeded}>
+                            <button className="pay__btn" disabled={processing || disabled || succeeded}>
                                 <span>{processing ? <p>Processing</p> : "Buy Now"}</span>
                             </button>
                         </div>

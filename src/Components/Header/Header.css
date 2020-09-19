@@ -73,3 +73,28 @@
     margin-right: 10px;
     color:white;
 }
+
+@media (min-width: 600px) {
+    .mobile__menu {
+        display: none;
+    }
+}
+
+@media (max-width: 600px) {
+    .header__option {
+        display: none;
+    }
+
+    .header {
+        width: 100%;
+    }
+
+    .header__optionBasket{
+        margin-left: 3px;
+    }
+    
+    .header__basketCount{
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+}

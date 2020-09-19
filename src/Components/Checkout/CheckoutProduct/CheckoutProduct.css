@@ -30,3 +30,7 @@
     font-size: 17px;
     font-weight: 800;
 }
+
+.remove__basket{
+    cursor: pointer;
+}

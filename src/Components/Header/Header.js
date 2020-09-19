@@ -1,12 +1,13 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './Header.css';
 import SearchIcon from '@material-ui/icons/Search';
 import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 import { Link } from 'react-router-dom';
 import { useStateValue } from "../StateProvider/StateProvider"
 import { auth } from '../../Firebase';
+import DrawerToggleButton from '../SideDrawer/DrawerToggleButton';
 
-function Header() {
+function Header({click}) {
     const [{ basket, user }, dispatch] = useStateValue();
 
     const handleAuthentication = () => {
@@ -16,6 +17,9 @@ function Header() {
     }
     return (
         <div className='header'>
+            <div className="mobile__menu">
+                <DrawerToggleButton handleClick={click} />
+            </div>
             <Link to="/">
             <img className="header__logo" src="http://pngimg.com/uploads/amazon/amazon_PNG11.png"/>
             </Link>

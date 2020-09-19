@@ -12,6 +12,11 @@
     z-index: 1;
 }
 
+.product:hover{
+    transform: scale(1.05);
+    transition-duration: 0.5s;
+}
+
 .product__rating{
     display: flex;
 }
@@ -39,4 +44,8 @@
 .product__info {
      height: 100px;
      margin-bottom: 15px;
+}
+
+.add__basket{
+    cursor: pointer;
 }

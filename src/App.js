@@ -1,6 +1,8 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 import Header from './Components/Header/Header';
+import SideDrawer from './Components/SideDrawer/SideDrawer';
+import Backdrop from './Components/Backdrop/Backdrop';
 import Home from './Components/Home/Home';
 import Checkout from './Components/Checkout/Checkout';
 import Login from './Components/Login/Login';
@@ -12,16 +14,42 @@ import { useStateValue } from "./Components/StateProvider/StateProvider";
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
 
+
+
 const promise = loadStripe ('pk_test_99XEUmIVMUFM0xwph3Cw3TL9');
 
 function App() {
   const [{}, dispatch] = useStateValue();
+
+  
+  const [sideDrawerOpen, setSideDrawerOpen] = useState(false);
+    
+  //let sideDrawer = <SideDrawer/>
+  //let backdrop= <Backdrop />
+
+
+  const drawerToggleClickHandler = () => {
+   setSideDrawerOpen(!sideDrawerOpen)
+   console.log('Opening Menu Button Works')
+  }
+
+  const backDrawerToggleClickHandler = () => {
+    setSideDrawerOpen(false)
+    console.log('Closing Menu Button Works')
+   }
+
+   const showSideDrawer = () => {
+     
+   }
+
+   
 
   useEffect(() => {
     // will only run once when the app component loads...
 
     auth.onAuthStateChanged(authUser => {
       console.log("THE USER IS >>> ", authUser);
+
 
       if (authUser) {
         // the user just logged in / the user was logged in
@@ -42,27 +70,43 @@ function App() {
   return (
     //BEM
     <Router>
-      <div className="app">
+      <div style={{height:'100%'}}>
         <Switch>
         <Route path="/orders">
-           <Header />
+           <Header  click={drawerToggleClickHandler} />
+           <SideDrawer show={ sideDrawerOpen ? ( 
+          <Backdrop click={backDrawerToggleClickHandler} /> ) : null } />
+          { sideDrawerOpen ? ( 
+          <Backdrop click={backDrawerToggleClickHandler} /> ) : null }
            <Orders />
           </Route>
         <Route path="/login">
            <Login />
           </Route>
           <Route path="/checkout">
-            <Header />
+            <Header click={drawerToggleClickHandler} />
+            <SideDrawer show={ sideDrawerOpen ? ( 
+          <Backdrop click={backDrawerToggleClickHandler} /> ) : null } />
+          { sideDrawerOpen ? ( 
+          <Backdrop click={backDrawerToggleClickHandler} /> ) : null }
             <Checkout />
           </Route>
           <Route path="/payment">
-            <Header />
+            <Header  click={drawerToggleClickHandler} />
+            <SideDrawer show={ sideDrawerOpen ? ( 
+          <Backdrop click={backDrawerToggleClickHandler} /> ) : null } />
+          { sideDrawerOpen ? ( 
+          <Backdrop click={backDrawerToggleClickHandler} /> ) : null }
             <Elements stripe = {promise}>
               <Payment />
             </Elements>
           </Route>
           <Route path="/">
-            <Header/>
+            <Header click={drawerToggleClickHandler} />
+            <SideDrawer show={ sideDrawerOpen ? ( 
+          <Backdrop click={backDrawerToggleClickHandler} /> ) : null } />
+          { sideDrawerOpen ? ( 
+          <Backdrop click={backDrawerToggleClickHandler} /> ) : null }
             <Home/>
           </Route>
         </Switch>
