@@ -17,3 +17,10 @@
     }
 
 }
+
+@media (max-width: 340px){
+    .orders > h1 {
+        font-size: 28px;
+    }
+
+}
