@@ -1,6 +1,6 @@
 .side-drawer{
     height: 100%;
-    background: white;
+    background: #ededeb;
     box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.5);
     position: fixed;
     top:0;
@@ -28,7 +28,7 @@
     display: flex;
     align-items: center;
     border-bottom: 3px solid lightgray;
-    font-size: 25px;
+    font-size: 18px;
 }
 
 .side-drawer ul > li{

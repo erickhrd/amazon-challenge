@@ -20,10 +20,12 @@ function Product({title, price, rating, image, id, key}) {
             }
         });
     };
+
+    const maxLength = 95;
     return (
         <div className="product">
             <div className="product__info">
-                <p>{title}</p>
+                <p>{title.length > maxLength ? `${title.substring(0, maxLength)}...` : title}</p>
                 <p className="product__price">
                     <small>$</small>
                     <strong>{price}</strong>

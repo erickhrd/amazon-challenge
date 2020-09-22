@@ -1,5 +1,7 @@
 .payment{
     background-color: white;
+    min-height: 85vh;
+    height: fit-content;
 }
 
 .payment__container > h1 {
@@ -11,6 +13,7 @@
 }
 
 .payment__container > h1 a {
+    color: #000;
     text-decoration: none;
 }
 
@@ -52,4 +55,23 @@
 
 .pay__btn{
     cursor: pointer;
+}
+
+@media (max-width: 600px){
+    .payment__section {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .payment__title > h3 {
+        margin-top: 5px;
+        margin-bottom: 20px;
+    }
+
+    .payment__details {
+        width: 100%;
+    }
+
 }

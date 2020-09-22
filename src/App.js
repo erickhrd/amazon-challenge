@@ -8,6 +8,7 @@ import Checkout from './Components/Checkout/Checkout';
 import Login from './Components/Login/Login';
 import Payment from './Components/Payment/Payment';
 import Orders from './Components/Orders/Orders';
+import Footer from './Components/Footer/Footer'
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { auth } from './Firebase';
 import { useStateValue } from "./Components/StateProvider/StateProvider";
@@ -79,6 +80,7 @@ function App() {
           { sideDrawerOpen ? ( 
           <Backdrop click={backDrawerToggleClickHandler} /> ) : null }
            <Orders />
+           <Footer/>
           </Route>
         <Route path="/login">
            <Login />
@@ -90,6 +92,7 @@ function App() {
           { sideDrawerOpen ? ( 
           <Backdrop click={backDrawerToggleClickHandler} /> ) : null }
             <Checkout />
+            <Footer/>
           </Route>
           <Route path="/payment">
             <Header  click={drawerToggleClickHandler} />
@@ -100,6 +103,7 @@ function App() {
             <Elements stripe = {promise}>
               <Payment />
             </Elements>
+            <Footer/>
           </Route>
           <Route path="/">
             <Header click={drawerToggleClickHandler} />
@@ -108,6 +112,7 @@ function App() {
           { sideDrawerOpen ? ( 
           <Backdrop click={backDrawerToggleClickHandler} /> ) : null }
             <Home/>
+            <Footer/>
           </Route>
         </Switch>
     </div>
