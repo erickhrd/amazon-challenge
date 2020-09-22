@@ -34,3 +34,12 @@
 .remove__basket{
     cursor: pointer;
 }
+
+@media (max-width:340px){
+    .checkoutProduct {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}

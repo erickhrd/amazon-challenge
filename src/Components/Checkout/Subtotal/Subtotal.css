@@ -33,3 +33,9 @@
 .checkout__btn{
     cursor: pointer;
 }
+
+@media (max-width:340px){
+    .subtotal {
+        width: 250px;
+    }
+}

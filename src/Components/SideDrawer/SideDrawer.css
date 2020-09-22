@@ -14,6 +14,7 @@
 
 .side-drawer.open {
     transform: translateX(0);
+    overflow: scroll;
 }
 
 .side-drawer ul {
@@ -73,13 +74,20 @@
 }
 
 .btn > button {
-    margin-top: 2rem;
+    margin-top: 1rem;
     width: 90%;
-    height: 30px;
+    max-height: 50px;
+    margin-bottom: 1rem;
 }
 
 .btn {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+@media (max-width:340px){
+    .btn > button {
+        height: fit-content;
+    }
 }
